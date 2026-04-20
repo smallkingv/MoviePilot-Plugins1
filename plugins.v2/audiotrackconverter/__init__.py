@@ -18,7 +18,7 @@ class AudioTrackConverter(_PluginBase):
     plugin_version = "1.0.0"
     plugin_author = "User"
     plugin_desc = "监控视频目录，将EAC3/AC3单音轨转换为AAC立体声外挂音轨"
-    plugin_icon = "/volume1/docker/movie/icons/Audiobookshelf_A.png"
+    plugin_icon = "https://github.com/smallkingv/MoviePilot-Plugins/icons/Audiobookshelf_A.png"
     plugin_order = 100
     # 插件配置项ID前缀
     plugin_config_prefix = "audiotrackconverter_"
