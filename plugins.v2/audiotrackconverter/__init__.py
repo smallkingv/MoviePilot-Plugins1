@@ -1,4 +1,4 @@
-from app.core.plugin import _PluginBase
+from app.core.plugin import Plugin
 from app.core.event import eventmanager, Event
 from app.schemas.types import EventType
 from pathlib import Path
@@ -10,7 +10,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class AudioTrackConverterPlugin(_PluginBase):
+class AudioTrackConverterPlugin(Plugin):
     """音频轨道转换插件 - 将EAC3/AC3单音轨转换为AAC外挂音轨"""
     
     # 插件元数据
