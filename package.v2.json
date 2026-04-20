@@ -1,14 +1,1 @@
-{
-  "AudioTrackConverter": {
-    "name": "音频轨道转换器",
-    "description": "监控视频目录，将EAC3/AC3单音轨转换为AAC立体声外挂音轨，按Emby规范命名",
-    "labels": "媒体库,音频处理",
-    "version": "1.0.0",
-    "icon": "audio.png",
-    "author": "User",
-    "level": 1,
-    "history": {
-      "v1.0.0": "MoviePilot V2 版本音频轨道转换插件，支持EAC3/AC3单音轨转AAC外挂音轨"
-    }
-  }
-}
+
