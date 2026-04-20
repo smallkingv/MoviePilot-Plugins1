@@ -18,7 +18,7 @@ class AudioTrackConverter(_PluginBase):
     plugin_version = "1.0.0"
     plugin_author = "User"
     plugin_desc = "监控视频目录，将EAC3/AC3单音轨转换为AAC立体声外挂音轨"
-    plugin_icon = "https://raw.githubusercontent.com/jxxghp/MoviePilot-Plugins/main/icons/audio.png"
+    plugin_icon = "/volume1/docker/movie/icons/Audiobookshelf_A.png"
     plugin_order = 100
     
     def __init__(self):
@@ -212,21 +212,6 @@ class AudioTrackConverter(_PluginBase):
             "desc": "手动扫描音频轨道",
             "category": "音频处理",
             "data": {"action": "audio_convert_scan"}
-        }]
-    
-    def get_service(self) -> List[Dict[str, Any]]:
-        """注册定时服务"""
-        if not self._enabled or not self._watch_dirs:
-            return []
-        
-        interval = self._config.get("scan_interval", 3600)  # 默认1小时
-        
-        return [{
-            "id": "audio_track_converter_scan",
-            "name": "音频轨道转换扫描",
-            "trigger": "interval",
-            "func": self._scan_directories,
-            "kwargs": {"seconds": interval}
         }]
     
     @eventmanager.register(EventType.TransferComplete)
@@ -457,71 +442,3 @@ class AudioTrackConverter(_PluginBase):
             if output_path.exists():
                 output_path.unlink()
             return False
-    
-    def get_form(self) -> List[Dict[str, Any]]:
-        """返回插件配置表单"""
-        return [
-            {
-                'component': 'VForm',
-                'content': [
-                    {
-                        'component': 'VRow',
-                        'content': [
-                            {
-                                'component': 'VCol',
-                                'props': {'cols': 12, 'md': 4},
-                                'content': [
-                                    {
-                                        'component': 'VSwitch',
-                                        'props': {
-                                            'model': 'enabled',
-                                            'label': '启用插件'
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        'component': 'VRow',
-                        'content': [
-                            {
-                                'component': 'VCol',
-                                'props': {'cols': 12},
-                                'content': [
-                                    {
-                                        'component': 'VTextarea',
-                                        'props': {
-                                            'model': 'watch_dirs',
-                                            'label': '监控目录',
-                                            'placeholder': '每行一个目录路径\n例如:\n/media/movies\n/media/tv',
-                                            'rows': 5
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        'component': 'VRow',
-                        'content': [
-                            {
-                                'component': 'VCol',
-                                'props': {'cols': 12, 'md': 6},
-                                'content': [
-                                    {
-                                        'component': 'VTextField',
-                                        'props': {
-                                            'model': 'scan_interval',
-                                            'label': '扫描间隔（秒）',
-                                            'placeholder': '3600',
-                                            'type': 'number'
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
