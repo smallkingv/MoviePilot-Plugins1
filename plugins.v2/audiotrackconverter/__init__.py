@@ -1,3 +1,4 @@
+from typing import List, Dict, Any, Tuple
 from app.plugins import _PluginBase
 from app.core.event import eventmanager, Event
 from app.schemas.types import EventType
@@ -5,22 +6,19 @@ from pathlib import Path
 import subprocess
 import json
 import re
-from typing import List, Dict, Any, Tuple
 import logging
 
 logger = logging.getLogger(__name__)
 
 class AudioTrackConverter(_PluginBase):
-    """音频轨道转换插件 - 将EAC3/AC3单音轨转换为AAC外挂音轨"""
+    """音频轨道转换插件 - 测试版本"""
     
-    # 插件元数据
     plugin_name = "音频轨道转换器"
     plugin_version = "1.0.0"
     plugin_author = "User"
     plugin_desc = "监控视频目录，将EAC3/AC3单音轨转换为AAC立体声外挂音轨"
     plugin_icon = "Audiobookshelf_A.png"
     plugin_order = 100
-    # 插件配置项ID前缀
     plugin_config_prefix = "audiotrackconverter_"
     
     def __init__(self):
@@ -28,6 +26,7 @@ class AudioTrackConverter(_PluginBase):
         self._config = {}
         self._watch_dirs = []
         self._enabled = False
+        logger.info("AudioTrackConverter 类实例化成功")
         
     def init_plugin(self, config: dict = None):
         """初始化插件配置"""
