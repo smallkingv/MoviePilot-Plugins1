@@ -1,12 +1,1 @@
-{
-  "AacAudioTrack": {
-    "name": "AAC音轨添加器",
-    "description": "检测整理后的视频文件，如果没有AAC音轨则自动添加AAC stereo音轨",
-    "labels": "媒体处理",
-    "version": "1.0.0",
-    "icon": "music_note.png",
-    "author": "Your Name",
-    "level": 2,
-    "v2": true
-  }
-}
+
