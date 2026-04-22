@@ -5,7 +5,7 @@
     "labels": "媒体处理",
     "version": "2.0.0",
     "icon": "Moviepilot_A.png",
-    "author": "AI Assistant",
+    "author": "smallking",
     "level": 1,
     "history": {
       "v2.0.0": "新增监控目录配置、自定义转码格式、自动/和立即运行一次、日志管理等功能",
